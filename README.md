@@ -17,6 +17,7 @@ A robust Multi-Factor Authentication (MFA) service built with TypeScript, Expres
 
 - Docker
 - Twilio account (optional, for SMS functionality)
+- Postman or similar tool for API testing i.e. curl
 
 ## Installation & Setup
 
@@ -46,6 +47,8 @@ A robust Multi-Factor Authentication (MFA) service built with TypeScript, Expres
    ```
 
 The application will be available at `http://localhost:3000`
+
+Postman collection is available at `./Auth-Service.postman_collection.json`
 
 ## Environment Variables
 
