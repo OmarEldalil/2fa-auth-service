@@ -287,6 +287,7 @@ The time was distributed across:
 - **Monitoring & Observability**: Metrics, tracing, and health checks
 - **Security Headers**: CORS, CSP, HSTS implementation
 - **Database Migrations**: Proper migration system for schema changes
+- **Code style**: Add eslint and prettier for consisten formatting and early fixing ts problems and enforce them using Husky using pre-push hook
 
 ### Do you have any feedback regarding this coding challenge?
 
