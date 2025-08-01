@@ -12,7 +12,7 @@ export const storeUser = async (user: {
     const userEntity = new User();
     userEntity.name = user.name;
     userEntity.email = user.email;
-    userEntity.phone_number = user.phone;
+    userEntity.phone = user.phone;
     userEntity.password = user.password;
 
     return await userRepository.save(userEntity);
@@ -26,16 +26,16 @@ export const findUserById = async (id: string): Promise<User | null> => {
     })
 };
 
-export const findUserByPhone = async (phoneNumber: string): Promise<User | null> => {
+export const findUserByPhone = async (phone: string): Promise<User | null> => {
     return await userRepository.findOne({
         where: {
-            phone_number: phoneNumber
+            phone: phone
         }
     })
 };
 
 export const findUserByEmailOrPhone = async (email: string, phone: string): Promise<User | null> => {
-    return await userRepository.createQueryBuilder().where("email = :email", {email}).orWhere("phone_number = :phone", {phone}).getOne();
+    return await userRepository.createQueryBuilder().where("email = :email", {email}).orWhere("phone = :phone", {phone}).getOne();
 };
 
 

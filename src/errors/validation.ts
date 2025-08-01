@@ -1,5 +1,5 @@
 import {VALIDATION_ERROR} from "../constants/errors";
-import {BaseError} from "./BaseError";
+import {BaseError} from "./base-error";
 
 export class ValidationError extends BaseError<string[]> {
     name = VALIDATION_ERROR;

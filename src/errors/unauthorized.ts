@@ -1,5 +1,5 @@
-import {UNAUTHORIZED_ERROR, VALIDATION_ERROR} from "../constants/errors";
-import {BaseError} from "./BaseError";
+import {UNAUTHORIZED_ERROR} from "../constants/errors";
+import {BaseError} from "./base-error";
 
 export class UnauthorizedError extends BaseError {
     name = UNAUTHORIZED_ERROR;

@@ -1,7 +1,6 @@
 import {randomInt} from "crypto";
 import {deleteKey, getKey, setKey} from "./caching-service";
 import {DEFAULT_OTP_CACHE_TTL, optKey} from "../constants/cache";
-import {UnauthorizedError} from "../errors/unauthorized";
 import {OTPError} from "../errors/otp";
 
 export const generateOTP = async (userId: string): Promise<string> => {

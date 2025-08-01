@@ -9,6 +9,7 @@ export const register = async (req: Request, res: Response) => {
         phone: req.body?.phone,
         password: req.body?.password,
     });
+
     return res.json({
         message: "User created successfully",
         user
@@ -25,11 +26,12 @@ export const login = async (req: Request, res: Response) => {
     })
 }
 export const verify2FA = async (req: Request, res: Response) => {
-    const authToken = await authService.verify2FA({
+    const {accessToken, refreshToken} = await authService.verify2FA({
         authToken: req.body?.authToken,
         otp: req.body?.otp
     });
     return res.json({
-        authToken
+        accessToken,
+        refreshToken
     })
 }

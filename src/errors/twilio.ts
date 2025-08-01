@@ -1,5 +1,5 @@
-import {TWILIO_ERROR, VALIDATION_ERROR} from "../constants/errors";
-import {BaseError} from "./BaseError";
+import {TWILIO_ERROR} from "../constants/errors";
+import {BaseError} from "./base-error";
 
 export class TwilioError extends BaseError<string[]> {
     name = TWILIO_ERROR;

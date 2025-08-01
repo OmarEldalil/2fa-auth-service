@@ -14,7 +14,7 @@ export class User {
 
     @Index({ unique: true })
     @Column()
-    phone_number: string;
+    phone: string;
 
     @Column()
     password: string;

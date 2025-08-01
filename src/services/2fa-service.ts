@@ -6,5 +6,5 @@ import {OTPMessage} from "../constants/communication";
 export const handle2FAGenerationAndCommunication = async (user: User): Promise<void> => {
     const otp = await generateOTP(user.id);
 
-    await smsCommunicationService.send(user.phone_number, OTPMessage(otp))
+    await smsCommunicationService.send(user.phone, OTPMessage(otp))
 }

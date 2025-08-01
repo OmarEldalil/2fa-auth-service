@@ -1,6 +1,7 @@
 import {SMSCommunicationProviderInterface} from "./sms/sms-provider-interface";
 import strategies from "./sms/strategies";
-import {CommunicationProviders, DEFAULT_SMS_PROVIDER} from "../../constants/communication";
+import {CommunicationProviders} from "../../constants/communication";
+import {DEFAULT_SMS_PROVIDER} from "../../config/app";
 
 class SmsCommunicationService {
     private provider: SMSCommunicationProviderInterface;

@@ -10,8 +10,10 @@ import {UnauthorizedError} from "../errors/unauthorized";
 import {UserInformation} from "../request-validation/patch-user-information";
 import {UserPasswordUpdatePayload} from "../request-validation/patch-user-password";
 import {handle2FAGenerationAndCommunication} from "./2fa-service";
+import * as userMapper from "../mappers/user";
+import {UserResponseDTO} from "../types/user";
 
-export const createUser = async (userData: RegisterUserData): Promise<User> => {
+export const createUser = async (userData: RegisterUserData): Promise<UserResponseDTO> => {
 
     const user = await findUserByEmailOrPhone(userData.email, userData.phone);
     if (user) {
@@ -19,7 +21,9 @@ export const createUser = async (userData: RegisterUserData): Promise<User> => {
     }
     const hashedPassword = await hashPassword(userData.password);
 
-    return await userRepository.storeUser({...userData, password: hashedPassword});
+    const storedUser = await userRepository.storeUser({...userData, password: hashedPassword});
+
+    return userMapper.toResponseDTO(storedUser);
 }
 
 export const updateUserInformation = async (userId: string, userData: UserInformation): Promise<void> => {
@@ -29,8 +33,8 @@ export const updateUserInformation = async (userId: string, userData: UserInform
 export const getUserById = async (id: string): Promise<User | null> => {
     return await findUserById(id);
 }
-export const getUserByPhone = async (phoneNumber: string): Promise<User | null> => {
-    return await findUserByPhone(phoneNumber);
+export const getUserByPhone = async (phone: string): Promise<User | null> => {
+    return await findUserByPhone(phone);
 }
 
 export const validateUserPassword = async (inputPassword: string, storedPassword: string, msg?: string): Promise<void> => {

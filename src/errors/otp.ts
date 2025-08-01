@@ -1,5 +1,5 @@
-import {OTP_ERROR, UNAUTHORIZED_ERROR, VALIDATION_ERROR} from "../constants/errors";
-import {BaseError} from "./BaseError";
+import {OTP_ERROR} from "../constants/errors";
+import {BaseError} from "./base-error";
 
 export class OTPError extends BaseError {
     name = OTP_ERROR;
