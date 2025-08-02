@@ -262,6 +262,10 @@ The time was distributed across:
 
 ### If you had more time, what other things would you like to do?
 
+**Async SMS sending**
+
+Providing a non-blocking, asynchronous way to send SMS messages would improve performance and user experience, especially under high load. This could be achieved using a message queue (e.g., RabbitMQ, SQS) to handle SMS sending in the background.
+
 **Testing Infrastructure**
 - **Unit Tests**: Comprehensive Jest test suites for all services, repositories, and controllers
 - **Integration Tests**: End-to-end API testing with test database
@@ -290,7 +294,8 @@ The time was distributed across:
 - **Monitoring & Observability**: Metrics, tracing, and health checks
 - **Security Headers**: CORS, CSP, HSTS implementation
 - **Database Migrations**: Proper migration system for schema changes
-- **Code style**: Add eslint and prettier for consisten formatting and early fixing ts problems and enforce them using Husky using pre-push hook
+- **Code style**: Add eslint and prettier for consistent formatting and early fixing ts problems and enforce them using Husky using pre-push hook
+- **Messages**: Add centralized messages instead of magic strings in the codebase
 
 ### Do you have any feedback regarding this coding challenge?
 

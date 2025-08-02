@@ -39,9 +39,15 @@ export const loginProcessRateLimiter = createRateLimiter({
     skipSuccessfulRequests: true
 });
 
+export const registerRateLimiter = createRateLimiter({
+    limit: 10,
+    windowMs: 5 * 60 * 1000,
+    keyGenerator: (req: Request) => `register:${ipKeyGenerator(req.headers['x-forwarded-for']?.[0] || req.ip || '')}`,
+});
+
 export const generalRateLimiter = createRateLimiter({
     limit: 100,
     windowMs: 5 * 60 * 1000,
-    keyGenerator: (req: Request) => `login:${ipKeyGenerator(req.headers['x-forwarded-for']?.[0] || req.ip || '')}`,
+    keyGenerator: (req: Request) => `rl:${ipKeyGenerator(req.headers['x-forwarded-for']?.[0] || req.ip || '')}`,
     skipSuccessfulRequests: true
 });
