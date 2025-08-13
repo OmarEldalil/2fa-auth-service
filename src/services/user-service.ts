@@ -64,3 +64,10 @@ export const updateUserPassword = async (userId: string, payload: UserPasswordUp
 
     await updateUserById(userId, {password})
 }
+
+export const getMeInformation = (user?: User): UserResponseDTO => {
+    if(!user) {
+        throw new ValidationError("User not found");
+    }
+    return userMapper.toResponseDTO(user);
+}

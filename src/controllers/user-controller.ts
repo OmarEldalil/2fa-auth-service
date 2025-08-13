@@ -31,3 +31,10 @@ export const updateUserPassword = async (req: Request, res: Response) => {
         message: "User password updated successfully",
     })
 }
+
+export const getMeInformation = async (req: Request, res: Response) => {
+    const user = userService.getMeInformation(req.user);
+    return res.json({
+        ...user
+    })
+}

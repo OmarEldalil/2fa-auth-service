@@ -1,5 +1,6 @@
 import {Router} from 'express'
 import {
+    getMeInformation,
     handlePasswordUpdateRequest,
     updateUserInformation,
     updateUserPassword
@@ -14,6 +15,8 @@ import {OTPRateLimiter} from "../middlewares/rate-limiter";
 const usersRouter = Router();
 
 usersRouter.use(authenticate);
+
+usersRouter.get("/me", getMeInformation)
 
 // to update user information
 usersRouter.patch("/me/information", validateRequest(patchUserInformationRequest), updateUserInformation)
